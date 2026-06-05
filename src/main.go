@@ -10,6 +10,6 @@ func main() {
 		fmt.Println("Not enough arguments")
 		os.Exit(1)
 	}
-	fmt.Println("Hello World")
+	fmt.Println(os.Args[1], os.Args[2])
 	os.Exit(0)
 }
