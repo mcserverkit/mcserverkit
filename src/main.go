@@ -17,6 +17,7 @@ func main() {
 	switch command {
 	case "create":
 		var name string = ""
+		var version string = ""
 		for i, arg := range arguments {
 			if arg == "--name" {
 				fmt.Println("Creating server...")
@@ -26,12 +27,23 @@ func main() {
 				} else {
 					name = arguments[i+1]
 				}
+			} else if arg == "--version" {
+				if strings.HasPrefix(arguments[i+1], "--") {
+
+				} else {
+					version = arguments[i+1]
+				}
 			}
 		}
 
 		if name == "" {
 			fmt.Println("--name needed to create server")
 			os.Exit(1)
+		}
+
+		if version == "" {
+			version = "latest"
+			fmt.Println("--version not provided defaulting to latest")
 		}
 
 		os.Mkdir(name, 0755)
