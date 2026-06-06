@@ -17,11 +17,15 @@ func main() {
 			if arg == "--name" {
 				fmt.Println("Creating server...")
 				if strings.HasPrefix("--", os.Args[i+1]) {
+
 				} else {
+					fmt.Println("--name requires a value")
+					os.Exit(1)
 				}
 				return
 			} else {
 				fmt.Println("--name needed to create server")
+				os.Exit(1)
 			}
 		}
 	case "start":
