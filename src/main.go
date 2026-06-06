@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"strings"
 )
 
 func main() {
@@ -17,9 +18,12 @@ func main() {
 func Command(command string, args []string) {
 	switch command {
 	case "create":
-		for _, arg := range args {
+		for i, arg := range args {
 			if arg == "--name" {
 				fmt.Println("Creating server...")
+				if strings.HasPrefix("--", args[i+1]) {
+				} else {
+				}
 				return
 			} else {
 				fmt.Println("--name needed to create server")
