@@ -20,5 +20,7 @@ func Command(command string, args []string) {
 		fmt.Println(command, args)
 	case "start":
 		fmt.Println(command, args)
+	default:
+		fmt.Println("Unknown command:", command)
 	}
 }
