@@ -15,5 +15,9 @@ func main() {
 }
 
 func Command(command string, args []string) {
-	fmt.Println(command, args)
+	if command == "create" {
+		fmt.Println(command, args)
+	} else if command == "start" {
+		fmt.Println(command, args)
+	}
 }
