@@ -16,6 +16,7 @@ func main() {
 	flags := map[string]string{
 		"--name":    "",
 		"--version": "latest",
+		"--type":    "java",
 	}
 
 	for i, arg := range arguments {
@@ -33,6 +34,7 @@ func main() {
 			os.Exit(1)
 		}
 
+		fmt.Println("Creating server...")
 		os.Mkdir(flags["--name"], 0755)
 	case "start":
 		if flags["--name"] == "" {
