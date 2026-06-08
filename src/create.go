@@ -6,7 +6,7 @@ import (
 	"os/exec"
 )
 
-func create(name string) {
+func create(name string, memory string) {
 	fmt.Println("Creating server...")
 	os.Mkdir(name, 0755)
 	config := readConfig()
@@ -18,6 +18,9 @@ func create(name string) {
 	}
 
 	cmd := exec.Command("java", "-jar", config.Jar)
+	if memory != "" {
+		cmd = exec.Command("java", "-Xms"+memory+"G", "-Xmx"+memory+"G", "-jar", "--nogui")
+	}
 	cmd.Dir = name
 	err = cmd.Run()
 
