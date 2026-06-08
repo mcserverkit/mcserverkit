@@ -4,8 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
-	"slices"
 )
 
 func parse(url string, target any) {
@@ -26,26 +24,17 @@ func parse(url string, target any) {
 }
 
 func install(version string) {
-	PaperAPI := "https://api.papermc.io/v2/projects/paper"
+	PaperAPI := "https://fill.papermc.io/v3/projects/paper/versions/" + version + "/builds/latest"
 
 	var PaperResponse struct {
-		Versions []string `json:"versions"`
+		Downloads struct {
+			ServerDefault struct {
+				Url string `json:"url"`
+			} `json:"server:default"`
+		} `json:"downloads"`
 	}
 
 	parse(PaperAPI, &PaperResponse)
 
-	if !slices.Contains(PaperResponse.Versions, version) {
-		fmt.Println("Available versions:", PaperResponse.Versions)
-		os.Exit(1)
-	}
-
-	var VersionResponse struct {
-		Builds []int `json:"builds"`
-	}
-
-	parse(PaperAPI+"/versions/"+version, &VersionResponse)
-
-	build := VersionResponse.Builds[len(VersionResponse.Builds)-1]
-
-	fmt.Println(build)
+	fmt.Println(PaperResponse.Downloads.ServerDefault.Url)
 }
