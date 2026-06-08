@@ -44,12 +44,14 @@ func main() {
 			os.Exit(1)
 		}
 
-		create(subject, flags["--memory"])
+		create(subject)
 	case "start":
-		if flags["--name"] == "" {
-			fmt.Println("--name needed to start server")
+		if subject == "" {
+			fmt.Println("Name needed to start server")
 			os.Exit(1)
 		}
+
+		start(subject, flags["--memory"])
 	default:
 		fmt.Println("Unknown command:", command)
 		os.Exit(1)
