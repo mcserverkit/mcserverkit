@@ -34,12 +34,12 @@ func main() {
 
 		install(arguments[0])
 	case "create":
-		if flags["--name"] == "" {
-			fmt.Println("--name needed to create server")
+		if len(arguments) == 0 || strings.HasPrefix(arguments[0], "--") {
+			fmt.Println("Name needed to create server")
 			os.Exit(1)
 		}
 
-		create(flags["--name"])
+		create(arguments[0])
 	case "start":
 		if flags["--name"] == "" {
 			fmt.Println("--name needed to start server")
