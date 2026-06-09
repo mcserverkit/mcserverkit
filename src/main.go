@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"mcserverkit/core"
 	"os"
 	"strings"
 )
@@ -37,21 +38,21 @@ func main() {
 			os.Exit(1)
 		}
 
-		install(subject)
+		core.Install(subject)
 	case "create":
 		if subject == "" {
 			fmt.Println("Name needed to create server")
 			os.Exit(1)
 		}
 
-		create(subject)
+		core.Create(subject)
 	case "start":
 		if subject == "" {
 			fmt.Println("Name needed to start server")
 			os.Exit(1)
 		}
 
-		start(subject, flags["--memory"])
+		core.Start(subject, flags["--memory"])
 	default:
 		fmt.Println("Unknown command:", command)
 		os.Exit(1)
