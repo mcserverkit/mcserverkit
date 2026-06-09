@@ -4,6 +4,8 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+
+	"mcserverkit.github.io/internal"
 )
 
 func Install(version string) error {
@@ -11,7 +13,7 @@ func Install(version string) error {
 		var VersionResponse struct {
 			Versions map[string][]string `json:"versions"`
 		}
-		err := Parse("https://fill.papermc.io/v3/projects/paper", &VersionResponse)
+		err := internal.Parse("https://fill.papermc.io/v3/projects/paper", &VersionResponse)
 		if err != nil {
 			return err
 		}
@@ -28,17 +30,17 @@ func Install(version string) error {
 		} `json:"downloads"`
 	}
 
-	err := Parse(PaperAPI, &PaperResponse)
+	err := internal.Parse(PaperAPI, &PaperResponse)
 	if err != nil {
 		return err
 	}
 
-	err = DownloadFile(PaperResponse.Downloads.ServerDefault.Name, PaperResponse.Downloads.ServerDefault.Url)
+	err = internal.DownloadFile(PaperResponse.Downloads.ServerDefault.Name, PaperResponse.Downloads.ServerDefault.Url)
 	if err != nil {
 		return err
 	}
 
-	err = CreateConfig(Config{Jar: PaperResponse.Downloads.ServerDefault.Name})
+	err = internal.CreateConfig(internal.Config{Jar: PaperResponse.Downloads.ServerDefault.Name})
 	if err != nil {
 		return err
 	}
@@ -59,7 +61,7 @@ func Create(name string) error {
 }
 
 func Start(name string, memory string) error {
-	config, err := ReadConfig()
+	config, err := internal.ReadConfig()
 	if err != nil {
 		return err
 	}
