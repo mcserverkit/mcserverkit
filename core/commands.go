@@ -11,17 +11,14 @@ func Install(version string) error {
 		var VersionResponse struct {
 			Versions map[string][]string `json:"versions"`
 		}
-
 		err := Parse("https://fill.papermc.io/v3/projects/paper", &VersionResponse)
 		if err != nil {
 			return err
 		}
-
 		version = VersionResponse.Versions["26.1"][0]
 	}
 
 	PaperAPI := "https://fill.papermc.io/v3/projects/paper/versions/" + version + "/builds/latest"
-
 	var PaperResponse struct {
 		Downloads struct {
 			ServerDefault struct {
@@ -45,7 +42,6 @@ func Install(version string) error {
 	if err != nil {
 		return err
 	}
-
 	return nil
 }
 
@@ -59,7 +55,6 @@ func Create(name string) error {
 	if err != nil {
 		return err
 	}
-
 	return nil
 }
 
@@ -70,17 +65,14 @@ func Start(name string, memory string) error {
 	}
 
 	path := filepath.Join("..", config.Jar)
-
 	cmd := exec.Command("java", "-jar", path, "--nogui")
 	if memory != "" {
 		cmd = exec.Command("java", "-Xms"+memory, "-Xmx"+memory, "-jar", "--nogui")
 	}
 	cmd.Dir = name
 	err = cmd.Run()
-
 	if err != nil {
 		return err
 	}
-
 	return nil
 }
