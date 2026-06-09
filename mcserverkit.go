@@ -69,7 +69,7 @@ func Start(name string, memory string) error {
 	path := filepath.Join("..", config.Jar)
 	cmd := exec.Command("java", "-jar", path, "--nogui")
 	if memory != "" {
-		cmd = exec.Command("java", "-Xms"+memory, "-Xmx"+memory, "-jar", "--nogui")
+		cmd = exec.Command("java", "-Xms"+memory, "-Xmx"+memory, "-jar", path, "--nogui")
 	}
 	cmd.Dir = name
 	err = cmd.Run()
