@@ -50,6 +50,22 @@ func downloadFile(filepath string, url string) error {
 }
 
 func install(version string) {
+	if version == "latest" {
+
+		var VersionResponse struct {
+			Versions map[string][]string `json:"versions"`
+		}
+
+		err := parse("https://fill.papermc.io/v3/projects/paper", &VersionResponse)
+
+		if err != nil {
+			fmt.Println("Error parsing JSON:", err)
+			return
+		}
+
+		version = VersionResponse.Versions["26.1"][0]
+	}
+
 	PaperAPI := "https://fill.papermc.io/v3/projects/paper/versions/" + version + "/builds/latest"
 
 	var PaperResponse struct {
