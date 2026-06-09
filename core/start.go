@@ -1,13 +1,11 @@
 package core
 
 import (
-	"fmt"
-	"os"
 	"os/exec"
 	"path/filepath"
 )
 
-func Start(name string, memory string) {
+func Start(name string, memory string) error {
 	config := ReadConfig()
 	path := filepath.Join("..", config.Jar)
 
@@ -19,7 +17,8 @@ func Start(name string, memory string) {
 	err := cmd.Run()
 
 	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
+		return err
 	}
+
+	return nil
 }
