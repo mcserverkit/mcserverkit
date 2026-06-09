@@ -6,11 +6,11 @@ import (
 )
 
 type Config struct {
-	Jar string `jar:"version"`
+	Jar string `json:"jar"`
 }
 
 func CreateConfig(config Config) error {
-	data, err := json.MarshalIndent(config, "", " ")
+	data, err := json.Marshal(config)
 	if err != nil {
 		return err
 	}
