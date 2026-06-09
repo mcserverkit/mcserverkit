@@ -8,26 +8,25 @@ import (
 	"os"
 )
 
-func Parse(url string, target any) {
+func Parse(url string, target any) error {
 	resp, err := http.Get(url)
 	if err != nil {
-		fmt.Println("Error requesting URL:", err)
-		os.Exit(1)
+		return err
 	}
 
 	defer resp.Body.Close()
 
 	if resp.StatusCode != 200 {
-		fmt.Println(resp.Status)
-		os.Exit(1)
+		return fmt.Errorf("%s", resp.Status)
 	}
 
 	err = json.NewDecoder(resp.Body).Decode(target)
 
 	if err != nil {
-		fmt.Println("Error decoding JSON:", err)
-		os.Exit(1)
+		return err
 	}
+
+	return nil
 }
 
 // https://stackoverflow.com/questions/11692860/how-can-i-efficiently-download-a-large-file-using-go
