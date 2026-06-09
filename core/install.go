@@ -49,7 +49,7 @@ func downloadFile(filepath string, url string) error {
 	return nil
 }
 
-func install(version string) {
+func Install(version string) {
 	if version == "latest" {
 
 		var VersionResponse struct {
@@ -86,5 +86,5 @@ func install(version string) {
 
 	downloadFile(PaperResponse.Downloads.ServerDefault.Name, PaperResponse.Downloads.ServerDefault.Url)
 
-	createConfig(Config{Jar: PaperResponse.Downloads.ServerDefault.Name})
+	CreateConfig(Config{Jar: PaperResponse.Downloads.ServerDefault.Name})
 }

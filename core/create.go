@@ -5,7 +5,7 @@ import (
 	"os"
 )
 
-func create(name string) {
+func Create(name string) {
 	fmt.Println("Creating server...")
 	os.Mkdir(name, 0755)
 

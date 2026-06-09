@@ -10,7 +10,7 @@ type Config struct {
 	Jar string `jar:"version"`
 }
 
-func createConfig(config Config) error {
+func CreateConfig(config Config) error {
 	data, err := json.MarshalIndent(config, "", " ")
 
 	if err != nil {
@@ -20,7 +20,7 @@ func createConfig(config Config) error {
 	return os.WriteFile("config.json", data, 0644)
 }
 
-func readConfig() Config {
+func ReadConfig() Config {
 	var config Config
 	data, err := os.ReadFile("config.json")
 	if err != nil {

@@ -7,8 +7,8 @@ import (
 	"path/filepath"
 )
 
-func start(name string, memory string) {
-	config := readConfig()
+func Start(name string, memory string) {
+	config := ReadConfig()
 	path := filepath.Join("..", config.Jar)
 
 	cmd := exec.Command("java", "-jar", path, "--nogui")
