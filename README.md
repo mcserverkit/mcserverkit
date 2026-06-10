@@ -26,7 +26,7 @@ func main() {
 		return
 	}
 
-	err = mcserverkit.Create("MyServer")
+	err = mcserverkit.Create("MyServer", true)
 	if err != nil {
 		fmt.Println("Error creating MyServer:", err)
 		return
