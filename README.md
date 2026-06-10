@@ -8,7 +8,7 @@ A Go library for creating and managing Minecraft servers.
 go get mcserverkit.github.io
 ```
 
-## Usage
+## Example
 
 ```go
 package main
