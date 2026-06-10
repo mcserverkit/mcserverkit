@@ -71,6 +71,9 @@ func Start(name string, memory ...string) error {
 	if len(memory) > 0 {
 		cmd = exec.Command("java", "-Xms"+memory[0], "-Xmx"+memory[0], "-jar", path, "--nogui")
 	}
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+
 	cmd.Dir = name
 	err = cmd.Run()
 	if err != nil {
