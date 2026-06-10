@@ -22,6 +22,9 @@ Create a server
 mcserverkit.Create(name string, eula bool)
 ```
 
+- `name`: Folder name of your server
+- `eula`: Passing `true` means you have read and agree to [Minecraft's EULA](https://www.minecraft.net/en-us/eula)
+
 Start your server
 
 ```go
