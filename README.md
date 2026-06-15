@@ -2,15 +2,15 @@
 
 A library for creating and managing Minecraft servers in Go & C/C++
 
-## Installation
+## Go Usage
 
 ```bash
 go get mcserverkit.github.io
 ```
 
-## Usage
-
-Install a server version
+<details>
+  <summary>API</summary>
+  Install a server version
 
 ```go
 mcserverkit.Install(version string)
@@ -36,7 +36,9 @@ mcserverkit.Start(name string, memory ...string)
 - `name`: Folder name of your server
 - `memory`: (optional) Amount of memory allocated to the server, ex: 4G, 1024M
 
-## Example
+</details>
+
+`main.go`
 
 ```go
 package main
