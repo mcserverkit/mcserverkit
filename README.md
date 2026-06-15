@@ -10,36 +10,6 @@ Install the package:
 go get mcserverkit.github.io
 ```
 
-<details>
-  <summary>API</summary>
-  Install a server version
-
-```go
-mcserverkit.Install(version string)
-```
-
-- `version`: The Minecraft version the server runs on, pass "latest" to install the latest release.
-
-Create a server
-
-```go
-mcserverkit.Create(name string, eula bool)
-```
-
-- `name`: Folder name of your server
-- `eula`: Passing `true` means you have read and agree to [Minecraft's EULA](https://www.minecraft.net/en-us/eula)
-
-Start your server
-
-```go
-mcserverkit.Start(name string, memory ...string)
-```
-
-- `name`: Folder name of your server
-- `memory`: (optional) Amount of memory allocated to the server, ex: 4G, 1024M
-
-</details>
-
 `main.go`
 
 ```go
@@ -74,36 +44,6 @@ func main() {
 
 ## C Usage
 
-<details>
-  <summary>API</summary>
-  Install a server version
-
-```c
-Install(version string)
-```
-
-- `version`: The Minecraft version the server runs on, pass "latest" to install the latest release.
-
-Create a server
-
-```c
-Create(name string, eula bool)
-```
-
-- `name`: Folder name of your server
-- `eula`: Passing `true` means you have read and agree to [Minecraft's EULA](https://www.minecraft.net/en-us/eula)
-
-Start your server
-
-```c
-Start(name string, memory ...string)
-```
-
-- `name`: Folder name of your server
-- `memory`: (optional) Amount of memory allocated to the server, ex: 4G, 1024M
-
-</details>
-
 `main.c`
 
 ```c
@@ -116,3 +56,45 @@ int main()
 	Start("MyServer", "4G")
 }
 ```
+
+### API
+
+Install a server version
+
+<details open>
+  <summary>Go</summary>
+
+```go
+mcserverkit.Install(version string)
+```
+
+</details>
+
+<details>
+  <summary>C/C++</summary>
+
+```c
+Install(const char* version)
+```
+
+</details>
+
+- `version`: The Minecraft version the server runs on, pass "latest" to install the latest release.
+
+Create a server
+
+```go
+mcserverkit.Create(name string, eula bool)
+```
+
+- `name`: Folder name of your server
+- `eula`: Passing `true` means you have read and agree to [Minecraft's EULA](https://www.minecraft.net/en-us/eula)
+
+Start your server
+
+```go
+mcserverkit.Start(name string, memory ...string)
+```
+
+- `name`: Folder name of your server
+- `memory`: (optional) Amount of memory allocated to the server, ex: 4G, 1024M
