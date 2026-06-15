@@ -57,7 +57,7 @@ int main()
 }
 ```
 
-### API
+## API
 
 Install a server version
 
