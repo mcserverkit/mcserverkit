@@ -106,9 +106,26 @@ Install(const char* name, bool eula)
 
 Start your server
 
+<details open>
+  <summary>Go</summary>
+
 ```go
 mcserverkit.Start(name string, memory ...string)
 ```
+
+</details>
+
+<details>
+  <summary>C/C++</summary>
+
+```c
+Start(const char* name, const char* memory)
+```
+
+> [!NOTE]
+> In C you must pass `NULL` to memory if you don't want to allocate a maximum amount of memory
+
+</details>
 
 - `name`: Folder name of your server
 - `memory`: (optional) Amount of memory allocated to the server, ex: 4G, 1024M
