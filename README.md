@@ -105,6 +105,20 @@ Start
 
 ## Building
 
-```
+Windows:
+
+```bash
 go build -buildmode=c-shared -o mcserverkit.dll ./bind
+```
+
+Linux:
+
+```bash
+go build -buildmode=c-shared -o mcserverkit.so ./bind
+```
+
+macOS:
+
+```bash
+go build -buildmode=c-shared -o mcserverkit.dylib ./bind
 ```
