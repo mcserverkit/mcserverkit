@@ -93,6 +93,11 @@ int main()
 }
 ```
 
+```bash
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build -j
+```
+
 `CMakeLists.txt`
 
 ```cmake
@@ -110,6 +115,11 @@ FetchContent_MakeAvailable(mcserverkit)
 
 add_executable(example main.cpp)
 target_link_libraries(example PRIVATE mcserverkit)
+```
+
+```bash
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build -j
 ```
 
 ## API
