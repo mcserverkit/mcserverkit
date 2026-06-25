@@ -20,10 +20,7 @@ add_custom_command(
 if(WIN32)
   add_custom_command(
     OUTPUT "${import_lib}"
-    COMMAND gendef "${lib}"
-    COMMAND
-      ${CMAKE_COMMAND} -E rename "${CMAKE_BINARY_DIR}/mcserverkit.def"
-      "${CMAKE_CURRENT_BINARY_DIR}/mcserverkit.def"
+    COMMAND gendef - "${lib}" > "${CMAKE_CURRENT_BINARY_DIR}/mcserverkit.def"
     COMMAND
       dlltool -d "${CMAKE_CURRENT_BINARY_DIR}/mcserverkit.def" -l
       "${import_lib}"
