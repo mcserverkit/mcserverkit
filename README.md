@@ -154,7 +154,7 @@ Start
 Windows:
 
 ```bash
-go build -buildmode=c-shared -o mcserverkit.dll ./bind
+go build -buildmode=c-shared -o mcserverkit.dll ./bindings/c
 gendef mcserverkit.dll
 dlltool -d mcserverkit.def -l libmcserverkit.a
 ```
@@ -162,11 +162,11 @@ dlltool -d mcserverkit.def -l libmcserverkit.a
 Linux:
 
 ```bash
-go build -buildmode=c-shared -o mcserverkit.so ./bind
+go build -buildmode=c-shared -o mcserverkit.so ./bindings/c
 ```
 
 macOS:
 
 ```bash
-go build -buildmode=c-shared -o mcserverkit.dylib ./bind
+go build -buildmode=c-shared -o mcserverkit.dylib ./bindings/c
 ```
