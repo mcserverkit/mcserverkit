@@ -13,22 +13,22 @@ jobs:
           - os: ubuntu-latest
             goos: linux
             goarch: amd64
-            output: mcserver.so
+            output: mcserverkit.so
             zip: mcserverkit.linux-x86_64.zip
           - os: windows-latest
             goos: windows
             goarch: amd64
-            output: mcserver.dll
+            output: mcserverkit.dll
             zip: mcserverkit.windows-x86_64.zip
           - os: macos-latest
             goos: darwin
             goarch: amd64
-            output: mcserver.dylib
+            output: mcserverkit.dylib
             zip: mcserverkit.macos-x86_64.zip
           - os: macos-latest
             goos: darwin
             goarch: arm64
-            output: mcserver.dylib
+            output: mcserverkit.dylib
             zip: mcserverkit.macos-arm64.zip
     steps:
       - uses: actions/checkout@v4
@@ -38,7 +38,7 @@ jobs:
       - env:
           GOOS: ${{ matrix.goos }}
           GOARCH: ${{ matrix.goarch }}
-        run: go build -o ${{ matrix.output }} ./bindings/c
+        run: go build -buildmode=c-shared -o ${{ matrix.output }} ./bindings/c
       - if: matrix.goos == 'windows'
         run: |
           gendef ${{ matrix.output }}
