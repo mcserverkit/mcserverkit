@@ -38,6 +38,7 @@ jobs:
       - env:
           GOOS: ${{ matrix.goos }}
           GOARCH: ${{ matrix.goarch }}
+          CGO_ENABLED: "1"
         run: go build -buildmode=c-shared -o ${{ matrix.output }} ./bindings/c
       - if: matrix.goos == 'windows'
         run: |
