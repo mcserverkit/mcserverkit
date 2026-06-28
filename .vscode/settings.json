@@ -1,5 +1,3 @@
 {
-  "rust-analyzer.linkedProjects": [
-    "./bindings/rust/Cargo.toml"
-  ]
+  "rust-analyzer.linkedProjects": ["./bindings/rust/Cargo.toml"]
 }
