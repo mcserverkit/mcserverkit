@@ -44,7 +44,11 @@ jobs:
         run: |
           gendef ${{ matrix.output }}
           dlltool -d mcserverkit.def -l libmcserverkit.a
+      - name: Compress-Archive
+        if: matrix.goos == 'windows'
+        run: Compress-Archive -Path ${{ matrix.output }}, libmcserverkit.a -DestinationPath ${{ matrix.zip }}
       - name: zip
+        if: matrix.goos != 'windows'
         run: zip ${{ matrix.zip }} ${{ matrix.output }}
       - name: upload
         env:
