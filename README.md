@@ -68,7 +68,7 @@ include(FetchContent)
 FetchContent_Declare(
 	mcserverkit
 	GIT_REPOSITORY https://github.com/mcserverkit/mcserverkit
-	GIT_TAG v0.1.9
+	GIT_TAG v0.1.10
 )
 FetchContent_MakeAvailable(mcserverkit)
 
@@ -109,7 +109,7 @@ include(FetchContent)
 FetchContent_Declare(
 	mcserverkit
 	GIT_REPOSITORY https://github.com/mcserverkit/mcserverkit
-	GIT_TAG v0.1.9
+	GIT_TAG v0.1.10
 )
 FetchContent_MakeAvailable(mcserverkit)
 
