@@ -31,15 +31,7 @@ set(zip "${CMAKE_BINARY_DIR}/${asset}")
 file(DOWNLOAD "${url}" "${zip}")
 file(ARCHIVE_EXTRACT INPUT "${zip}" DESTINATION "${CMAKE_BINARY_DIR}")
 
-if(WIN32)
-  add_custom_target(bin ALL DEPENDS "${lib}" "${h}" "${import_lib}")
-else()
-  add_custom_target(bin ALL DEPENDS "${lib}" "${h}")
-endif()
-
 add_library(mcserverkit INTERFACE)
-
-add_dependencies(mcserverkit bin)
 
 target_include_directories(mcserverkit INTERFACE "${CMAKE_BINARY_DIR}")
 
