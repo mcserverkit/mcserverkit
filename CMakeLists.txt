@@ -9,6 +9,7 @@ endif()
 
 if(WIN32)
   set(lib "${CMAKE_BINARY_DIR}/mcserverkit.dll")
+  set(import_lib "${CMAKE_BINARY_DIR}/libmcserverkit.a")
   set(os "windows")
 elseif(APPLE)
   set(lib "${CMAKE_BINARY_DIR}/mcserverkit.dylib")
