@@ -8,14 +8,16 @@ else()
 endif()
 
 if(WIN32)
+  set(lib "${CMAKE_BINARY_DIR}/mcserverkit.dll")
   set(os "windows")
 elseif(APPLE)
+  set(lib "${CMAKE_BINARY_DIR}/mcserverkit.dylib")
   set(os "macos")
 else()
+  set(lib "${CMAKE_BINARY_DIR}/mcserverkit.so")
   set(os "linux")
 endif()
 
-set(lib "${CMAKE_BINARY_DIR}/${output}")
 set(h "${CMAKE_BINARY_DIR}/mcserverkit.h")
 
 add_custom_command(
