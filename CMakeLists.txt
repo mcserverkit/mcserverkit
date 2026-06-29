@@ -25,6 +25,12 @@ set(asset "mcserverkit.${os}-${architecture}.zip")
 set(url
     "https://github.com/mcserverkit/mcserverkit/releases/latest/download/${asset}")
 
+# https://cmake.org/cmake/help/latest/command/file.html
+
+set(zip "${CMAKE_BINARY_DIR}/${asset}")
+file(DOWNLOAD "${url}" "${zip}")
+file(ARCHIVE_EXTRACT INPUT "${zip}" DESTINATION "${CMAKE_BINARY_DIR}")
+
 if(WIN32)
   add_custom_target(bin ALL DEPENDS "${lib}" "${h}" "${import_lib}")
 else()
