@@ -3,6 +3,6 @@ name = "mcserverkit"
 version = "0.1.10"
 edition = "2024"
 
-[[bin]]
+[lib]
 name = "mcserverkit"
 path = "src/lib.rs"
