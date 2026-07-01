@@ -52,4 +52,7 @@ fn main() {
             .output()
             .expect("failed to execute process");
     }
+
+    println!("cargo:rustc-link-search=native=.");
+    println!("cargo:rustc-link-lib=mcserverkit");
 }
