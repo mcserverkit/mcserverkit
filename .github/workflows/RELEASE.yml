@@ -15,11 +15,19 @@ jobs:
             goarch: amd64
             output: mcserverkit.so
             zip: mcserverkit.linux-x86_64.zip
+          - os: ubuntu-latest
+            goos: linux
+            goarch: arm64
+            zip: mcserverkit.linux-arm64.zip
           - os: windows-latest
             goos: windows
             goarch: amd64
             output: mcserverkit.dll
             zip: mcserverkit.windows-x86_64.zip
+          - os: windows-latest
+            goos: windows
+            goarch: arm64
+            zip: mcserverkit.windows-arm64.zip
           - os: macos-latest
             goos: darwin
             goarch: amd64
