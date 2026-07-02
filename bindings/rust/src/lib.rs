@@ -16,6 +16,8 @@ pub fn create(name: &str, eula: bool) {
     unsafe { Create(name.as_ptr(), eula) }
 }
 
-pub fn start() {
-    unsafe { Start() }
+pub fn start(name: &str, memory: &str) {
+    let name = ffi::CString::new(name).expect("");
+    let memory = ffi::CString::new(memory).expect("");
+    unsafe { Start(name.as_ptr(), memory.as_ptr()) }
 }
