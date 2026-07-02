@@ -1,8 +1,11 @@
 package main
 
-import (
-	"C"
+/*
+#include <stdbool.h>
+*/
+import "C"
 
+import (
 	"mcserverkit.github.io"
 )
 
@@ -16,8 +19,8 @@ func Install(version *C.char) C.int {
 }
 
 //export Create
-func Create(name *C.char, eula C.int) C.int {
-	err := mcserverkit.Create(C.GoString(name), eula != 0)
+func Create(name *C.char, eula C.bool) C.int {
+	err := mcserverkit.Create(C.GoString(name), bool(eula))
 	if err != nil {
 		return 1
 	}

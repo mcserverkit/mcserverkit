@@ -47,12 +47,13 @@ func main() {
 `main.c`
 
 ```c
+#include <stdbool.h>
 #include "mcserverkit.h"
 
 int main()
 {
 	Install("1.21.1");
-	Create("MyServer", 1);
+	Create("MyServer", true);
 	Start("MyServer", "4G");
 }
 ```
@@ -86,6 +87,7 @@ cmake --build build -j
 `main.cpp`
 
 ```c++
+#include <stdbool.h>
 extern "C" {
 	#include "mcserverkit.h"
 }
@@ -93,7 +95,7 @@ extern "C" {
 int main()
 {
 	Install("1.21.1");
-	Create("MyServer", 1);
+	Create("MyServer", true);
 	Start("MyServer", "4G");
 }
 ```
